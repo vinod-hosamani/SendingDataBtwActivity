@@ -22,12 +22,14 @@ public class ItemRecycler extends RecyclerView.Adapter<ItemRecycler.ViewHolder> 
 
     List<Model> list;
     onItemClick onItemClick;
+    onLongClickItem onLongClickItem;
 
 
-    public ItemRecycler(List<Model> list,onItemClick onItemClick)
+    public ItemRecycler(List<Model> list,onItemClick onItemClick,onLongClickItem onLongClickItem)
     {
         this.list=list;
         this.onItemClick=onItemClick;
+        this.onLongClickItem=onLongClickItem;
     }
     @Override
     public ItemRecycler.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,11 +43,20 @@ public class ItemRecycler extends RecyclerView.Adapter<ItemRecycler.ViewHolder> 
         holder.textView1.setText(list.get(position).getText1());
         holder.textView2.setText(list.get(position).getText2());
         holder.imageView.setImageResource(list.get(position).getImages());
+
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onItemClick.onClick(v,position);
 
+            }
+        });
+
+        holder.relativeLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                onLongClickItem.onLongClick(view,position);
+                return false;
             }
         });
 
@@ -76,5 +87,8 @@ public class ItemRecycler extends RecyclerView.Adapter<ItemRecycler.ViewHolder> 
     {
          void onClick(View view,int position);
     }
-
+    public interface  onLongClickItem
+    {
+        void onLongClick(View v,int position);
+    }
 }

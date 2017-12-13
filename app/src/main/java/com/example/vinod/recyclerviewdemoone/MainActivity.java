@@ -8,11 +8,12 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ItemRecycler.onItemClick {
+public class MainActivity extends AppCompatActivity implements ItemRecycler.onItemClick,ItemRecycler.onLongClickItem {
     RecyclerView recyclerView;
     ArrayList<Model> a;
     String [] t1={"one" ,"two","three","four" ,"five"};
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements ItemRecycler.onIt
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
        // recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         ArrayList<Model> androidVersions = prepareData();
-        ItemRecycler adapter = new ItemRecycler(androidVersions,this);
+        ItemRecycler adapter = new ItemRecycler(androidVersions,this,this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -72,5 +73,11 @@ public class MainActivity extends AppCompatActivity implements ItemRecycler.onIt
           finish();
       }
 
+    }
+
+    @Override
+    public void onLongClick(View v, int position)
+    {
+        Toast.makeText(this,"hi you clicked"+position+"",Toast.LENGTH_LONG).show();
     }
 }
