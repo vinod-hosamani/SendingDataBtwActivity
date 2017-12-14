@@ -56,7 +56,7 @@ public class ItemRecycler extends RecyclerView.Adapter<ItemRecycler.ViewHolder> 
             @Override
             public boolean onLongClick(View view) {
                 onLongClickItem.onLongClick(view,position);
-                return false;
+                return true;
             }
         });
 
