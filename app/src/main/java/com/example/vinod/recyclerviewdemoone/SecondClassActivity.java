@@ -9,8 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by vinod on 12/12/17.
  */
 
-public class SecondClassActivity extends AppCompatActivity
-{
+public class SecondClassActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +19,7 @@ public class SecondClassActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

@@ -6,11 +6,11 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
+        android:padding="12dp"
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/background_light"
-        >
+        android:background="@android:color/background_light">
 
         <RelativeLayout
             android:gravity="center"
@@ -19,12 +19,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true" >
         <ImageView
+            android:padding="2dp"
             android:foregroundGravity="center"
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_assignment_returned_black_24dp"
-            />
+            android:src="@drawable/ic_assignment_returned_black_24dp" />
            </RelativeLayout>
 
         <RelativeLayout
@@ -36,21 +36,19 @@
 
         <TextView
             android:id="@+id/text1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hi how are you"
+            android:text="first Name"
             android:textSize="21dp"
-
             />
 
         <TextView
             android:id="@+id/text2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text1"
-            android:text="hi how are you"
+            android:text="last Name"
             android:textSize="21dp"
-
             />
         </RelativeLayout>
 
